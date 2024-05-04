@@ -181,6 +181,7 @@ def unsloth_save_model(
     temporary_location   : str = "_unsloth_temporary_saved_buffers",
     maximum_memory_usage : float = 0.9,
 ):
+    print("saving model adit")
     if token is None and "HF_TOKEN" in os.environ:
         token = os.environ["HF_TOKEN"]
 
