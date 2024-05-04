@@ -696,7 +696,7 @@ pass
 
 
 def install_llama_cpp_make_non_blocking():
-    env = { **os.environ, "LLAMA_CUDA": "1", }
+    env = { **os.environ, "LLAMA_CUBLAS": "1", }
     n_jobs = max(int(psutil.cpu_count()*1.5), 1)
     # Force make clean
     os.system("make clean -C llama.cpp")
@@ -764,6 +764,8 @@ pass
 
 
 def install_llama_cpp_blocking(use_cuda = True):
+    # hack
+    use_cuda = False
     use_cuda = "LLAMA_CUDA=1" if use_cuda else ""
 
     commands = [
